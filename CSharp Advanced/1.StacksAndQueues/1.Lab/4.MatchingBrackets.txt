@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Stacks
+{
+    class StackDemo
+    {
+        static void Main(string[] args)
+        {
+            string expr = Console.ReadLine();
+
+            Stack<int> stack = new Stack<int>();
+
+            for (int i = 0; i < expr.Length; i++)
+            {
+                if (expr[i]=='(')
+                {
+                    stack.Push(i);
+                }
+                else if (expr[i]==')')
+                {
+                    int startIndex = stack.Pop();
+                    string contents = expr.Substring(startIndex, i - startIndex + 1);
+                    Console.WriteLine(contents);
+                }
+            }
+        }
+    }
+}

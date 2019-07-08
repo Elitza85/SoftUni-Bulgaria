@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Stacks
+{
+    class StackDemo
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            Queue<string> queue = new Queue<string>();
+
+            string line = string.Empty;
+            int countCars = 0;
+            while ((line = Console.ReadLine()) != "end")
+            {
+                if (line == "green")
+                {
+                    int currentCount = queue.Count >= n ? n : queue.Count;
+                    for (int i = 0; i < currentCount; i++)
+                    {
+                        Console.WriteLine($"{queue.Dequeue()} passed!");
+                        countCars++;
+                    }
+                }
+                else
+                {
+                    queue.Enqueue(line);
+                }
+            }
+            Console.WriteLine($"{countCars} cars passed the crossroads.");
+        }
+    }
+}
