@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+
+namespace binary1
+{
+    public class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int count = int.Parse(Console.ReadLine());
+            List<Person> people = new List<Person>();
+
+            for (int i = 0; i < count; i++)
+            {
+                string[] tokens = Console.ReadLine()
+                    .Split(new[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                var currentPerson = new Person
+                {
+                    Name = tokens[0],
+                    Age = int.Parse(tokens[1])
+                };
+                people.Add(currentPerson);
+                
+            }
+            string condition = Console.ReadLine();
+            int age = int.Parse(Console.ReadLine());
+
+            Func<Person, bool> filtered;
+
+            if (condition == "older")
+            {
+                filtered = p => p.Age >= age;
+            }
+            else
+            {
+                filtered = p => p.Age < age;
+            }
+
+            string format = Console.ReadLine();
+
+            Func<Person, string> selectFunc;
+
+            if (format == "name age")
+            {
+                selectFunc = p => $"{p.Name} - {p.Age}";
+            }
+            else if(format=="age")
+            {
+                selectFunc = p => $"{p.Age}";
+            }
+            else
+            {
+                selectFunc = p => $"{p.Name}";
+            }
+            people
+                .Where(filtered)
+                .Select(selectFunc)
+                .ToList()
+                .ForEach(Console.WriteLine);
+        }
+    }
+}

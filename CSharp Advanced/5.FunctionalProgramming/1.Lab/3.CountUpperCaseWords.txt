@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+
+namespace binary1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] line = Console.ReadLine()
+                .Split(new string[] { " "}, StringSplitOptions.RemoveEmptyEntries)
+                .Where(n=>char.IsUpper(n[0]))
+                .ToArray();
+            foreach (var item in line)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
+}

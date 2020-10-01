@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+
+namespace binary1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Func<double, double> addVAT = x => x * 1.2;
+            double[] prices = Console.ReadLine()
+                .Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse)
+                .Select(addVAT)
+                .ToArray();
+            foreach (var item in prices)
+            {
+                Console.WriteLine($"{item:f2}");
+            }
+        }
+    }
+}

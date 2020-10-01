@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+
+namespace binary1
+{
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var nums = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .Reverse();
+
+            int divisor = int.Parse(Console.ReadLine());
+
+            Predicate<int> isDivisibleBy = x => x % divisor != 0;
+            Func<int, bool> filterNums = x => isDivisibleBy(x);
+            nums=nums
+                .Where(filterNums);
+            Console.WriteLine(string.Join(" ", nums));
+        }
+    }
+}

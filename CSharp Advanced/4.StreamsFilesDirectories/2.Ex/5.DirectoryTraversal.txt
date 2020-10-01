@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace binary1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] fileArr = Directory.GetFiles(".", "*.*");
+
+            Dictionary<string, Dictionary<string, double>> dirInfo = new Dictionary<string, Dictionary<string, double>>();
+
+            DirectoryInfo directInfo = new DirectoryInfo(".");
+
+            FileInfo[] allFiles = directInfo.GetFiles();
+
+            foreach (var currentFile in allFiles)
+            {
+                double size= currentFile.Length / 1024d;
+                string fileName = currentFile.Name;
+                string extension = currentFile.Extension;
+
+                if(!dirInfo.ContainsKey(extension))
+                {
+                    dirInfo[extension] = new Dictionary<string, double>();
+                }
+                if (!dirInfo[extension].ContainsKey(fileName))
+                {
+                    dirInfo[extension][fileName] = size;
+                }
+            }
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                +@"/report.txt";
+            var sortedDict = dirInfo
+                .OrderByDescending(x => x.Value.Count)
+                .ThenBy(y => y.Key)
+                .ToDictionary(x=>x.Key, y=>y.Value);
+
+            foreach (var item in sortedDict)
+            {
+                File.AppendAllText(path, item.Key +Environment.NewLine);
+                foreach (var (fileName, size) in item.Value.OrderBy(x=>x.Value))
+                {
+                    File.AppendAllText(path,$"--{fileName} - {Math.Round(size,3)}kb" +Environment.NewLine);
+                }
+            }
+        }
+    }
+}

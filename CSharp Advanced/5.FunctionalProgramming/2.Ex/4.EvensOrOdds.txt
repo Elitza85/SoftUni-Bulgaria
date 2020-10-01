@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+
+namespace binary1
+{
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Predicate<int> isEven = x => x % 2 == 0;
+
+            int[] lineOfNums = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToArray();
+
+            string command = Console.ReadLine();
+
+            List<int> filteredNums = new List<int>();
+
+            Enumerable.Range(lineOfNums[0], lineOfNums[1] - lineOfNums[0] + 1)
+                .Where(x => command == "even" ? isEven(x) : !isEven(x))
+                .ToList()
+                .ForEach(filteredNums.Add);
+
+            Console.WriteLine(string.Join(" ", filteredNums));
+        }
+    }
+}

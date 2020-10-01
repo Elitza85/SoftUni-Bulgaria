@@ -1,0 +1,45 @@
+using System;
+using System.IO;
+using System.Linq;
+
+namespace streams1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string textFilePath = @"text.txt";
+
+            int count = 0;
+            using (StreamReader sr = new StreamReader(textFilePath))
+            {
+                string currentLine = string.Empty;
+                while ((currentLine=sr.ReadLine())!=null)
+                {
+                    if(count%2==0)
+                    {
+                        string replacedSymbols = ReplaceSpecSymbols(currentLine);
+                        string reversedLine = ReverseWords(replacedSymbols);
+
+                        Console.WriteLine(reversedLine);
+                    }
+                    count++;
+                }
+            }
+        }
+
+        private static string ReverseWords(string replacedSymbols)
+        {
+            return string.Join(" ", replacedSymbols.Split().Reverse());
+        }
+
+        private static string ReplaceSpecSymbols(string currentLine)
+        {
+            return currentLine.Replace("-", "@")
+                .Replace(",", "@")
+                .Replace(".", "@")
+                .Replace("!", "@")
+                .Replace("?", "@");
+        }
+    }
+}

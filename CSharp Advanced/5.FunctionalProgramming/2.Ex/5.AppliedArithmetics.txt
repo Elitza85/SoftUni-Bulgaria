@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+
+namespace binary1
+{
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var nums = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToList();
+
+            string command = string.Empty;
+            Func<List<int>, List<int>> addsToEach = x => x.Select(y=>y + 1).ToList();
+            Func<List<int>, List<int>> multiplyEach = x => x.Select(y => y * 2).ToList();
+            Func<List<int>, List<int>> subtract = x => x.Select(y => y - 1).ToList();
+            Func<List<int>, string> stringToPrint = x => string.Join(" ", x);
+
+            List<int> changedNums = new List<int>();
+
+            while ((command=Console.ReadLine())!="end")
+            {
+                switch (command)
+                {
+                    case "add":
+                        nums = addsToEach(nums);
+                        break;
+                    case "multiply":
+                        nums = multiplyEach(nums);
+                        break;
+                    case "subtract":
+                        nums = subtract(nums);
+                        break;
+                    case "print":
+                        Console.WriteLine(stringToPrint(nums)); 
+                        break;
+                }
+            }
+        }
+    }
+}

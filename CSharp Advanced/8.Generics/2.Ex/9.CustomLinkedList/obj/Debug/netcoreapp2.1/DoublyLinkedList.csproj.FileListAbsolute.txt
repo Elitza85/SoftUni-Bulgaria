@@ -1,0 +1,10 @@
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\bin\Debug\netcoreapp2.1\DoublyLinkedList.deps.json
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\bin\Debug\netcoreapp2.1\DoublyLinkedList.runtimeconfig.json
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\bin\Debug\netcoreapp2.1\DoublyLinkedList.runtimeconfig.dev.json
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\bin\Debug\netcoreapp2.1\DoublyLinkedList.dll
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\bin\Debug\netcoreapp2.1\DoublyLinkedList.pdb
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\obj\Debug\netcoreapp2.1\DoublyLinkedList.csproj.CoreCompileInputs.cache
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\obj\Debug\netcoreapp2.1\DoublyLinkedList.AssemblyInfoInputs.cache
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\obj\Debug\netcoreapp2.1\DoublyLinkedList.AssemblyInfo.cs
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\obj\Debug\netcoreapp2.1\DoublyLinkedList.dll
+C:\Users\Eli\Desktop\SoftUni\reshenia\3.AdvancedModule\8.Generics\2.Ex\9.CustomLinkedList\obj\Debug\netcoreapp2.1\DoublyLinkedList.pdb
